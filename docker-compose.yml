@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/usr/src/bot
+      - /usr/src/bot/node_modules
+    environment:
+      NODE_ENV: development
+    command: npm run dev
+    ports:
+      - "3005:3000"
